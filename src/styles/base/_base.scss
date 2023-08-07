@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: inherit;
+}
+
+html {
+   font-size: 62.5%;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Poppins', sans-serif;
+   font-size: $font-size-default;
+   color: $font-color-default;
+   background-color: $color-background;
+}

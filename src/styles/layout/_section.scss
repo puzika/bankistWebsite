@@ -1,0 +1,23 @@
+.section {
+   padding: 10rem 2rem;
+   border-top: .15rem solid $color-border;
+
+   &__title {
+      width: 55%;
+      margin: 0 auto 5rem;
+   }
+
+   &__heading {
+      font-weight: 500;
+
+      &--primary {
+         font-size: 1.8rem;
+         color: $color-green;
+         margin-bottom: 1rem;
+      }
+
+      &--secondary {
+         font-size: 4rem;
+      }
+   }
+}

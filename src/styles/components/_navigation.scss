@@ -1,0 +1,33 @@
+.navigation {
+   display: flex;
+   align-items: center;
+   height: 4.5rem;
+   padding: 0 6rem;
+
+   &__logo {
+      margin-right: auto;
+      height: 100%;
+   }
+
+   &__list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+   }
+
+   &__item {
+      &:not(:last-child) {
+         margin-right: 4rem;
+      }
+   }
+
+   &__link {
+      &:link,
+      &:visited {
+         color: inherit;
+         text-decoration: none;
+      }
+
+      cursor: pointer;
+   }
+}
