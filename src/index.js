@@ -9,6 +9,7 @@ import featuresImg3 from './assets/card.jpg';
 import userImg1 from './assets/user-1.jpg';
 import userImg2 from './assets/user-2.jpg';
 import userImg3 from './assets/user-3.jpg';
+import footerImg from './assets/icon.png';
 
 const logoNavigation = document.querySelector('.navigation__logo');
 const headerImage = document.querySelector('.header__image');
@@ -18,6 +19,7 @@ const featuresImage3 = document.querySelector('.features__image--3');
 const userImage1 = document.querySelector('.user__image--1');
 const userImage2 = document.querySelector('.user__image--2');
 const userImage3 = document.querySelector('.user__image--3');
+const footerImage = document.querySelector('.footer__logo');
 
 logoNavigation.src = logo;
 headerImage.src = headerImg;
@@ -27,3 +29,4 @@ featuresImage3.src = featuresImg3;
 userImage1.src = userImg1;
 userImage2.src = userImg2;
 userImage3.src = userImg3;
+footerImage.src = footerImg;

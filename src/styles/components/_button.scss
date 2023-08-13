@@ -1,9 +1,16 @@
 .btn {
    padding: 1rem 4.5rem;
    border-radius: 10rem;
+   background-color: $color-green;
 
    &--green {
-      background-color: $color-green;
       padding: 1rem 2.5rem;
+   }
+
+   &--sign-up {
+      padding: 2rem 4.5rem;
+      border: none;
+      outline: none;
+      font-size: 2rem;
    }
 }

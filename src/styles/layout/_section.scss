@@ -1,6 +1,6 @@
 .section {
    padding: 10rem 2rem;
-   border-top: .15rem solid $color-border;
+   border-top: $section-border;
 
    &__title {
       width: 55%;
@@ -20,5 +20,14 @@
       &--secondary {
          font-size: 4rem;
       }
+
+      &--sign-up {
+         color: $color-white;
+      }
+   }
+
+   &--sign-up {
+      background-color: $color-footer;
+      text-align: center;
    }
 }
