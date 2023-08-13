@@ -1,0 +1,102 @@
+.operations {
+   position: relative;
+   margin: 10rem auto;
+   width: 70%;
+
+   &__tabs {
+      width: 75%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__tab {
+      border-radius: 10rem;
+      padding: 1.25rem 4rem;
+      
+      & > span {
+         font-weight: 600;
+         margin-right: 1rem;
+      }
+
+      &--transfers {
+         background-color: $color-yellow;
+      }
+
+      &--loans {
+         background-color: $color-green;
+      }
+
+      &--closing {
+         background-color: $color-red;
+      }
+
+      &--active {
+         transform: translateY(-25%);
+      }
+   }
+
+   &__content {
+      display: none;
+      background-color: $color-white;
+      padding: 7rem 10rem 6.5rem;
+
+      &--active {
+         display: grid;
+         grid-template-columns: min-content 1fr;
+         grid-template-rows: repeat(2, auto);
+         align-items: center;
+         row-gap: .5rem;
+         column-gap: 3rem;
+      }
+   }
+
+   &__icon {
+      padding: 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > svg {
+         width: 4rem;
+         height: 4rem;
+         fill: currentColor;
+         stroke: currentColor;
+      }
+
+      &--transfers,
+      &--loans {
+         stroke-width: 0;
+      }
+
+      &--transfers {
+         color: $color-yellow;
+         background-color: rgba($color-yellow, .4);
+      }
+
+      &--loans {
+         color: $color-green;
+         background-color: rgba($color-green, .4);
+      }
+
+      &--closing {
+         color: $color-red;
+         background-color: rgba($color-red, .4);
+      }
+   }
+
+   &__heading {
+      font-size: 2.2rem;
+      font-weight: 500;
+   }
+
+   &__text {
+      grid-area: 2 / 2 / 3 / 3;
+      line-height: 200%;
+      color: rgba($font-color-default, .7);
+   }
+}
