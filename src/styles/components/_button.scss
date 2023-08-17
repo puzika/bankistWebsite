@@ -1,16 +1,14 @@
 .btn {
    padding: 1rem 4.5rem;
    border-radius: 10rem;
+   border: none;
+   outline: none;
    background-color: $color-green;
+   padding: 1rem 2.5rem;
+   cursor: pointer;
 
-   &--green {
-      padding: 1rem 2.5rem;
-   }
-
-   &--sign-up {
+   &--footer {
       padding: 2rem 4.5rem;
-      border: none;
-      outline: none;
       font-size: 2rem;
    }
 }

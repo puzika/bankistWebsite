@@ -19,3 +19,11 @@
    }
 }
 
+.obscured {
+   opacity: .5;
+}
+
+.hidden {
+   visibility: hidden;
+   opacity: 0;
+}

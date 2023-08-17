@@ -1,0 +1,85 @@
+.popup {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: $color-background;
+   width: 40%;
+   padding: 5rem 6rem;
+   box-shadow: 0 1rem 5rem rgba($color-black, .5);
+   transition: all .5s;
+
+   &__heading {
+      font-size: 3.25rem;
+   }
+
+   &__form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      padding: 0 3rem;
+      gap: 2rem;
+   }
+
+   &__label {
+      font-weight: 500;
+   }
+
+   &__input {
+      font-size: $font-size-default;
+      padding: 1rem 1.25rem;
+      outline: none;
+      border: .1rem solid $color-border;
+      border-radius: .5rem;
+   }
+
+   &__btn {
+      grid-area: 4 / 1 / 5 / 3;
+      margin-top: 2rem;
+      justify-self: center;
+      width: 45%;
+      font-size: 2rem;
+      padding: 1.5rem 0;
+   }
+
+   &__close {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      box-sizing: content-box;
+      padding: .25rem;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: inherit;
+         height: .3rem;
+         background-color: #444;
+      }
+
+      &::before {
+         transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+         transform: translate(-50%, -50%) rotate(-45deg);
+      }
+   }
+}
+
+.overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   height: 100vh;
+   background-color: rgba($color-black, .5);
+   backdrop-filter: blur(.5rem);
+   transition: all .5s;
+}

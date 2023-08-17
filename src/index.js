@@ -30,3 +30,60 @@ userImage1.src = userImg1;
 userImage2.src = userImg2;
 userImage3.src = userImg3;
 footerImage.src = footerImg;
+
+const headerNavigation = document.querySelector('.navigation');
+const headerNavigationLinks = document.querySelectorAll('.navigation__link');
+const buttonSignUp = document.querySelectorAll('.btn--sign-up');
+const overlay = document.querySelector('.overlay');
+const popup = document.querySelector('.popup');
+const popupClose = document.querySelector('.popup__close');
+
+function showPopup() {
+   overlay.classList.remove('hidden');
+   popup.classList.remove('hidden');
+}
+
+function hidePopup() {
+   overlay.classList.add('hidden');
+   popup.classList.add('hidden');
+}
+
+headerNavigation.addEventListener('mouseover', function (e) {
+   const target = e.target;
+   const isLink = target.classList.contains('navigation__link');
+
+   if (!isLink) return;
+
+   logoNavigation.classList.add('obscured');
+
+   headerNavigationLinks.forEach(currElement => {
+      if (currElement !== target) currElement.classList.add('obscured');
+   });
+});
+
+headerNavigation.addEventListener('mouseout', function (e) {
+   const target = e.target;
+   const isLink = target.classList.contains('navigation__link');
+
+   if (!isLink) return;
+
+   logoNavigation.classList.remove('obscured');
+
+   headerNavigationLinks.forEach(currElement => {
+      if (currElement !== target) currElement.classList.remove('obscured');
+   });
+});
+
+buttonSignUp.forEach(button => button.addEventListener('click', function (e) {
+   e.preventDefault();
+
+   showPopup();
+}));
+
+overlay.addEventListener('click', function (e) {
+   hidePopup();
+});
+
+popupClose.addEventListener('click', function (e) {
+   hidePopup();
+})

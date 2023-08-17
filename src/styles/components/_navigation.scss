@@ -7,6 +7,7 @@
    &__logo {
       margin-right: auto;
       height: 100%;
+      transition: opacity .5s;
    }
 
    &__list {
@@ -28,6 +29,8 @@
          text-decoration: none;
       }
 
+      padding: .5rem;
       cursor: pointer;
+      transition: opacity .5s;
    }
 }
