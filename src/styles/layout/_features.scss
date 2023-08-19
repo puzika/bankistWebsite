@@ -8,6 +8,7 @@
 
    &__image {
       width: 100%;
+      transition: all .75s;
    }
 
    &__feature {
@@ -15,6 +16,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 0 6rem;
+      transition: all .75s;
 
       & > *:not(:last-child) {
          margin-bottom: 2rem;

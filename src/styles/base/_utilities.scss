@@ -27,3 +27,15 @@
    visibility: hidden;
    opacity: 0;
 }
+
+.move-right {
+   transform: translateX(50%);
+}
+
+.move-left {
+   transform: translateX(-50%);
+}
+
+.move-down {
+   transform: translateY(15rem);
+}

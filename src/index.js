@@ -39,8 +39,9 @@ const popup = document.querySelector('.popup');
 const popupClose = document.querySelector('.popup__close');
 const linkScroll = document.querySelector('.link--scroll');
 const sectionFeatures = document.querySelector('.section--1');
-const features = Array.from(document.querySelector('.features').children);
 const featuresImages = document.querySelectorAll('.features__image');
+const featuresContent = document.querySelectorAll('.features__feature');
+const sections = document.querySelectorAll('.section');
 
 function showPopup() {
    overlay.classList.remove('hidden');
@@ -112,7 +113,69 @@ headerNavigation.addEventListener('click', function (e) {
    targetSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// features.forEach((feature, index) => {
-//    if (index % 2 === 0) feature.style.transform = 'translateX(-50%)';
-//    else feature.style.transform = 'translate(50%)';
-// });
+featuresImages.forEach((image, index) => {
+   if (index % 2 !== 0) {
+      image.classList.add('reverse');
+      image.classList.add('move-right');
+   } else {
+      image.classList.add('move-left');
+   }
+
+   image.classList.add('hidden');
+});
+
+featuresContent.forEach((feature, index) => {
+   if (index % 2 !== 0) {
+      feature.classList.add('move-left');
+   } else {
+      feature.classList.add('move-right');
+   }
+
+   feature.classList.add('hidden');
+});
+
+const optionsFeatures = {
+   threshold: .5,
+}
+
+const observerFeatures = new IntersectionObserver((entries, observer) => {
+   entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const target = entry.target;
+
+      if (target.classList.contains('move-right')) target.classList.remove('move-right');
+
+      if (target.classList.contains('move-left')) target.classList.remove('move-left');
+
+      target.classList.remove('hidden');
+
+      observer.unobserve(target);
+   });
+
+}, optionsFeatures);
+
+featuresImages.forEach(image => observerFeatures.observe(image));
+
+featuresContent.forEach(feature => observerFeatures.observe(feature));
+
+const observerSections = new IntersectionObserver((entries, observer) => {
+   entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const target = entry.target;
+
+      target.classList.remove('hidden');
+      target.classList.remove('move-down');
+
+      observer.unobserve(target);
+   })
+});
+
+sections.forEach((section, index) => {
+   if (index !== 0) {
+      section.classList.add('move-down');
+      section.classList.add('hidden');
+      observerSections.observe(section);
+   }
+});
