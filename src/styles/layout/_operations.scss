@@ -16,6 +16,8 @@
    &__tab {
       border-radius: 10rem;
       padding: 1.25rem 4rem;
+      transition: background-color .2s;
+      cursor: pointer;
       
       & > span {
          font-weight: 600;
@@ -24,14 +26,26 @@
 
       &--transfers {
          background-color: $color-yellow;
+
+         &:hover {
+            background-color: darken($color-yellow, 5%);
+         }
       }
 
       &--loans {
          background-color: $color-green;
+
+         &:hover {
+            background-color: darken($color-green, 5%);
+         }
       }
 
       &--closing {
          background-color: $color-red;
+
+         &:hover {
+            background-color: darken($color-red, 5%);
+         }
       }
 
       &--active {

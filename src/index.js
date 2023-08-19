@@ -37,6 +37,10 @@ const buttonSignUp = document.querySelectorAll('.btn--sign-up');
 const overlay = document.querySelector('.overlay');
 const popup = document.querySelector('.popup');
 const popupClose = document.querySelector('.popup__close');
+const linkScroll = document.querySelector('.link--scroll');
+const sectionFeatures = document.querySelector('.section--1');
+const features = Array.from(document.querySelector('.features').children);
+const featuresImages = document.querySelectorAll('.features__image');
 
 function showPopup() {
    overlay.classList.remove('hidden');
@@ -86,4 +90,29 @@ overlay.addEventListener('click', function (e) {
 
 popupClose.addEventListener('click', function (e) {
    hidePopup();
-})
+});
+
+linkScroll.addEventListener('click', function (e) {
+   e.preventDefault();
+
+   sectionFeatures.scrollIntoView({ behavior: 'smooth' });
+});
+
+headerNavigation.addEventListener('click', function (e) {
+   const target = e.target;
+
+   if (!target.classList.contains('navigation__link') || target.classList.contains('btn')) return;
+
+   e.preventDefault();
+
+   const sectionNum = target.dataset.to;
+
+   const targetSection = document.querySelector(`.section--${sectionNum}`);
+
+   targetSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+// features.forEach((feature, index) => {
+//    if (index % 2 === 0) feature.style.transform = 'translateX(-50%)';
+//    else feature.style.transform = 'translate(50%)';
+// });
