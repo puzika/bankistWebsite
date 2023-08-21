@@ -8,6 +8,7 @@
    padding: 5rem 6rem;
    box-shadow: 0 1rem 5rem rgba($color-black, .5);
    transition: all .5s;
+   z-index: 40;
 
    &__heading {
       font-size: 3.25rem;
@@ -82,4 +83,5 @@
    background-color: rgba($color-black, .5);
    backdrop-filter: blur(.5rem);
    transition: all .5s;
+   z-index: 30;
 }

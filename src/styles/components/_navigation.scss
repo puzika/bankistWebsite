@@ -1,12 +1,11 @@
 .navigation {
    display: flex;
    align-items: center;
-   height: 4.5rem;
    padding: 0 6rem;
-
+   
    &__logo {
+      height: 4.5rem;
       margin-right: auto;
-      height: 100%;
       transition: opacity .5s;
    }
 

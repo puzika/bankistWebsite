@@ -39,3 +39,13 @@
 .move-down {
    transform: translateY(15rem);
 }
+
+.sticky {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   background-color: rgba($color-white, .9);
+   height: 9rem;
+   z-index: 20;
+}

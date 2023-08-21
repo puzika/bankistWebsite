@@ -31,8 +31,10 @@ userImage2.src = userImg2;
 userImage3.src = userImg3;
 footerImage.src = footerImg;
 
+const header = document.querySelector('.header');
 const headerNavigation = document.querySelector('.navigation');
 const headerNavigationLinks = document.querySelectorAll('.navigation__link');
+const headerTitle = document.querySelector('.header__title');
 const buttonSignUp = document.querySelectorAll('.btn--sign-up');
 const overlay = document.querySelector('.overlay');
 const popup = document.querySelector('.popup');
@@ -42,6 +44,16 @@ const sectionFeatures = document.querySelector('.section--1');
 const featuresImages = document.querySelectorAll('.features__image');
 const featuresContent = document.querySelectorAll('.features__feature');
 const sections = document.querySelectorAll('.section');
+const operationsTabs = document.querySelectorAll('.operations__tab');
+const operationsTabsBox = document.querySelector('.operations__tabs');
+const operationsContent = document.querySelectorAll('.operations__content');
+const slides = document.querySelectorAll('.slider__slide');
+const sliderBtnLeft = document.querySelector('.slider__btn--left');
+const sliderBtnRight = document.querySelector('.slider__btn--right');
+const sliderDotBox = document.querySelector('.slider__dots');
+const sliderDots = document.querySelectorAll('.slider__dot');
+
+featuresImage2.style.gridArea = '2 / 2 / 3 / 3';
 
 function showPopup() {
    overlay.classList.remove('hidden');
@@ -115,7 +127,6 @@ headerNavigation.addEventListener('click', function (e) {
 
 featuresImages.forEach((image, index) => {
    if (index % 2 !== 0) {
-      image.classList.add('reverse');
       image.classList.add('move-right');
    } else {
       image.classList.add('move-left');
@@ -179,3 +190,77 @@ sections.forEach((section, index) => {
       observerSections.observe(section);
    }
 });
+
+const navHeightStatic = 45;
+const navHeightSticky = 90;
+
+const optionsNavigation = {
+   rootMargin: `-${navHeightSticky}px 0px 0px 0px`,
+}
+
+const observeNavigation = new IntersectionObserver((entries, observer) => {
+   entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+         headerNavigation.classList.add('sticky');
+         header.style.paddingTop = `${navHeightStatic + 20}px`;
+      } else {
+         headerNavigation.classList.remove('sticky');
+         header.style.paddingTop = `20px`; //20 - top padding of the header
+      }
+   });
+}, optionsNavigation);
+
+observeNavigation.observe(header);
+
+operationsTabsBox.addEventListener('click', function (e) {
+   const target = e.target.closest('.operations__tab');
+
+   if (!target) return;
+
+   operationsTabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+
+   operationsContent.forEach(content => content.classList.remove('operations__content--active'));
+
+   target.classList.add('operations__tab--active');
+
+   const tabNumber = target.dataset.tab;
+
+   const targetContent = document.querySelector(`.operations__content--${tabNumber}`);
+
+   targetContent.classList.add('operations__content--active');
+});
+
+let currentSlide = 0;
+
+function moveSlide() {
+   if (this === 'left') {
+      currentSlide = (currentSlide === 0) ? 2 : currentSlide - 1;
+   }
+
+   if (this === 'right') {
+      currentSlide = (currentSlide === 2) ? 0 : currentSlide + 1;
+   }
+
+   slides.forEach((slide, index) => slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`);
+}
+
+moveSlide();
+
+sliderBtnLeft.addEventListener('click', moveSlide.bind('left'));
+sliderBtnRight.addEventListener('click', moveSlide.bind('right'));
+
+sliderDotBox.addEventListener('click', function (e) {
+   const target = e.target;
+
+   if (!target.classList.contains('slider__dot')) return;
+
+   sliderDots.forEach(dot => dot.classList.remove('slider__dot--active'));
+
+   target.classList.add('slider__dot--active');
+
+   const dotNumber = +target.dataset.dot;
+
+   currentSlide = dotNumber - 1;
+
+   moveSlide();
+})

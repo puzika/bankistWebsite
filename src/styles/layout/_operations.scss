@@ -16,7 +16,7 @@
    &__tab {
       border-radius: 10rem;
       padding: 1.25rem 4rem;
-      transition: background-color .2s;
+      transition: background-color .2s, transform .3s;
       cursor: pointer;
       
       & > span {

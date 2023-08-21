@@ -5,7 +5,13 @@
    outline: none;
    background-color: $color-green;
    padding: 1rem 2.5rem;
+   transition: background-color .2s;
    cursor: pointer;
+
+   &:hover,
+   &:active {
+      background-color: #4bbb7d;
+   }
 
    &--footer {
       padding: 2rem 4.5rem;

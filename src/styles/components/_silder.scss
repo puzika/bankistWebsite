@@ -4,12 +4,13 @@
    display: flex;
    position: relative;
    height: 55rem;
+   overflow: hidden;
    
    &__slide {
       position: absolute;
-      background-color: $color-white;
       height: inherit;
       padding: 8rem 15rem;
+      transition: transform .8s;
 
       & > *:not(:last-child) {
          margin-bottom: 2rem;
@@ -30,7 +31,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translate(25%, 25%);
+      transform: translate(50%, 25%);
 
       & > svg {
          width: 10rem;
@@ -53,19 +54,19 @@
 
       &--left {
          left: 0;
-         transform: translate(-50%, -50%);
+         transform: translateY(-50%);
 
          &:active {
-            transform: translate(-50%, -60%);
+            transform: translateY(-60%);
          }
       }
 
       &--right {
          right: 0;
-         transform: translate(50%, -50%);
+         transform: translateY(-50%);
 
          &:active {
-            transform: translate(50%, -60%);
+            transform: translateY(-60%);
          }
       }
    }

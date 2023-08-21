@@ -87,12 +87,12 @@
 
       <div class="operations">
          <div class="operations__tabs">
-            <div class="operations__tab operations__tab--transfers operations__tab--active"><span>01</span> Instant transfers</div>
-            <div class="operations__tab operations__tab--loans"><span>02</span> Instant Loans</div>
-            <div class="operations__tab operations__tab--closing"><span>03</span> Instant closing</div>
+            <div data-tab="1" class="operations__tab operations__tab--transfers operations__tab--active"><span>01</span> Instant transfers</div>
+            <div data-tab="2" class="operations__tab operations__tab--loans"><span>02</span> Instant Loans</div>
+            <div data-tab="3" class="operations__tab operations__tab--closing"><span>03</span> Instant closing</div>
          </div>
 
-         <div class="operations__content operations__content--transfers operations__content--active">
+         <div class="operations__content operations__content--1 operations__content--transfers operations__content--active">
             <div class="operations__icon operations__icon--transfers">
                <svg>
                   <use xlink:href="#upload"></use>
@@ -105,7 +105,7 @@
             </p>
          </div>
 
-         <div class="operations__content operations__content--loans">
+         <div class="operations__content operations__content--2 operations__content--loans">
             <div class="operations__icon operations__icon--loans">
                <svg>
                   <use xlink:href="#home"></use>
@@ -117,7 +117,7 @@
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maiores beatae quae ipsum? Corrupti hic ex quod repellendus dolores repudiandae eius nihil corporis ab amet?
             </p>
          </div>
-         <div class="operations__content operations__content--closing">
+         <div class="operations__content operations__content--3 operations__content--closing">
             <div class="operations__icon operations__icon--closing">
                <svg>
                   <use xlink:href="#delete-user"></use>
@@ -139,7 +139,7 @@
       </div>
 
       <div class="slider">
-         <div class="slider__slide slider__slide--1">
+         <div data-slide="1" class="slider__slide slider__slide--1">
             <div class="slider__quote-icon">
                <svg>
                   <use xlink:href="#quote"></use>
@@ -160,7 +160,7 @@
             </div>
          </div>
 
-         <div class="slider__slide slider__slide--2">
+         <div data-slide="2" class="slider__slide slider__slide--2">
             <div class="slider__quote-icon">
                <svg>
                   <use xlink:href="#quote"></use>
@@ -181,7 +181,7 @@
                </div>
             </div>
          </div>
-         <div class="slider__slide slider__slide--3">
+         <div data-slide="3" class="slider__slide slider__slide--3">
             <div class="slider__quote-icon">
                <svg>
                   <use xlink:href="#quote"></use>
@@ -205,9 +205,9 @@
          <button class="slider__btn slider__btn--left">&larr;</button>
          <button class="slider__btn slider__btn--right">&rarr;</button>
          <div class="slider__dots">
-            <span class="slider__dot slider__dot--1"></span>
-            <span class="slider__dot slider__dot--2"></span>
-            <span class="slider__dot slider__dot--3 slider__dot--active"></span>
+            <span data-dot="1" class="slider__dot slider__dot--1 slider__dot--active"></span>
+            <span data-dot="2" class="slider__dot slider__dot--2"></span>
+            <span data-dot="3" class="slider__dot slider__dot--3"></span>
          </div>
       </div>
    </section>
